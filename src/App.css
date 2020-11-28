@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -13,15 +14,245 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.container {
   min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* grid-template-rows: /1fr 3fr; */
+  grid-template-columns: 1fr;
+  font-size: calc(10px + 2vmin);
+}
+.content {
+  display: grid;
+  background-color: #E2E6E3;
+  padding: 2rem 3.5rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px 40px;
+}
+
+.open {
+  overflow: hidden;
+  position: fixed;
+}
+
+
+.content > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+
+.content > div > img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 3rem;
+}
+
+.content > div > h6 {
+  justify-self: center;
+  align-self: center;
+  margin: 4px;
+  font-size: 16px;
+  line-height: 25px;
+  color: #2B2E2B;
+}
+
+.btn {
+  padding: 14px 11px;
+  border: 0.5px solid #4B5548;
+  width: calc(50% - 5px);
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #4B5548;
+  color: #FCFCF9;
+  justify-self: center;
+  align-self: center;
+  margin: 2rem;
+}
+
+.header {
+  /* min-height: 10vh; */
+  background-color: #ffffff;
+  padding: 1rem;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  
+}
+.modal-closed {
+  display: none;
+}
+
+.modal {
+  background-color: #f2f2ef;
+  position: absolute;
+  width: 45vw;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  text-align: left;
+  height: 100vh;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  transition: all 2s ease-in-out;
+  transform: translateX(0);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal > div:nth-child(1) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.modal > div > h6 {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
+  margin: 0px;
+}
+
+.modal > div:nth-child(1) > div:nth-child(1) {
+  border-radius: 50%;
+  border: 1px solid rgb(198, 204, 199); 
+  width: 24px; 
+  height: 24px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  cursor: pointer; 
+  margin-left: 20px;
+}
+
+.modal > select {
+  max-width: 80px;
+  cursor: pointer;
+  background: #ffffff;
+  padding: 8px;
+  margin: 16px;
+} 
+
+.cart {
+  display: flex;
+  overflow-y: auto;
+  margin: 14px;
+  flex-direction: column;
+  height: 60vh;
+}
+
+.cart-card {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: inherit;
+  max-height: inherit;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 20px;
+  background: #ffffff;
+  width: 90%;
+  padding: 15px;
+}
+
+.cart-card > div:nth-child(1) {
+  color: #1e2d2b;
+  width: 50%;
+  line-height: 18px;
+  font-size: 14px;
+  letter-spacing: .02px;
+}
+
+.cart-card > div:nth-child(1) > h6 {
+  margin-top: 0px;
+}
+
+.quantity {
+  font-size: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity > div:nth-child(1) {
+  border: .5px solid #bcbcbc;
+  padding: 7px;
+  width: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selector {
+  cursor: pointer;
+  color: #000;
+  font-size: 15px;
+}
+
+.count {
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.quantity > div:nth-child(2) {
+  float: right;
+  padding: 0 10px;
+  width: inherit;
+  font-size: 13px;
+  letter-spacing: .03px;
+}
+
+.cart-card > div:nth-child(2) {
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1e2d2b;
+  width: 20%;
+  padding-right: 15px;
+}
+
+.cart-card > div:nth-child(2) > img {
+  overflow: hidden;
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.total {
+  font-size: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.overlay {
+  background-color: #6e7b70;
+  opacity: .38;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .App-link {
@@ -35,4 +266,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media screen and (max-width: 768px){
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media screen and (max-width: 480px){
+  .content {
+    grid-template-columns: 1fr;
+  }
+  
 }
